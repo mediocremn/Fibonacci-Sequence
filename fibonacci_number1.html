@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+  <TITLE>My Fibonacci Sequence JavaScript Program</TITLE>
+<SCRIPT language="JavaScript">//This is my Fibonacci Sequence JavaScript program
+<!-- This is a program that finds the Fibonacci Sequence of the element entered//-->
+//  This program was added to Github on 07/16/2018.
+
+function get_fibonacci() //gets integer from the user
+{
+ var num1= window.prompt("Enter a whole number from 2 to 15.", " ");
+ var roundNum1=Math.round(num1);
+
+ if ((roundNum1<2)||(roundNum1>15)) //checks for numbers outside range given
+ {
+   window.alert("That number is outside of our range. Please try another number.");
+ }
+
+ else //if in range, adds 0 & 1 to the Fibonacci Sequence
+ {
+  var countNum1=2;
+  var fiboNum1=0;
+  var fibo_list = new Array();
+  fibo_list.push(0);
+  fibo_list.push(1);
+  document.write("<U>"+"The Fibonacci Sequence Is Shown Below:"+"</U>"+"<BR>");
+  document.write("<U>"+"0 1 ");
+
+  do //displays underlined counting numbers for the given range
+  {
+   document.write(countNum1+" ");
+   countNum1+=1;
+ } while (countNum1<=roundNum1);
+
+ document.write(" "+"</U>"+"<BR>");
+ countNum1=2;
+ document.write(fibo_list[0]+" "+fibo_list[1]+" ");
+
+  do //adds two previous numbers, displays result, & pushes result into array
+  {
+   fiboNum1=(fibo_list[countNum1-2]+fibo_list[countNum1-1]);
+   fibo_list.push(fiboNum1);
+   document.write(fibo_list[countNum1]+" ");
+   countNum1+=1;
+ } while (countNum1<=roundNum1);
+}
+}
+//--> This is the ending HTML comment line.
+</SCRIPT>
+</HEAD>
+<BODY>
+  <FORM>
+    <INPUT type="button" value="Find the Fibonacci Sequence!" onCLick="get_fibonacci();">
+  </FORM>
+</BODY>
+</HTML>
